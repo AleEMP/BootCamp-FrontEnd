@@ -1,0 +1,376 @@
+/* --- Estilos Generales --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: white;
+    width: 1528px;
+    margin-left: 10%;
+}
+
+/* --- Contenedor de la Barra de Navegación --- */
+.navbar {
+    
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* --- Logo --- */
+.logo {
+    padding: 0px 40px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #03081F;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo span {
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #FC8A06;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 2px;
+    line-height: 1.2;
+}
+
+/* --- Enlaces del Centro --- */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #03081F;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+/* Botón naranja de "Restaurants" */
+.nav-links li a.active-btn {
+    background-color: #FC8A06;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+}
+
+.nav-links li a:hover:not(.active-btn) {
+    color: #FC8A06;
+}
+
+.login-btn {
+    text-decoration: none;
+    background-color: #03081F;
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 12px 35px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.login-btn:hover {
+    background-color: #050e36;
+}
+
+.Imagen{
+    height: 361px;
+    width: 581px;
+    border-radius: 20px;
+    background-image: url(img/banner.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+
+.Fecha{
+  height: 158px;
+  width: 136px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  position: absolute;
+  top:240px;
+  left:10px;
+    background-image: url(img/fecha.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+.banner_main {
+    position: relative; 
+    z-index: 1;
+
+    background-image: url(img/banner.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+
+    height: 477px; 
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #ffffff;
+}
+
+.banner_main::before {
+    content: ''; 
+
+    position: absolute; 
+    top: 0;
+    left: 0;
+
+    width: 100%; 
+    height: 100%; 
+
+    z-index: -1; 
+
+    background-color: #03081FE5; 
+    border-radius: inherit; 
+}
+
+.letra{
+    padding: 20px 50px;
+}
+.banner_main h2{
+    font-size:50px;
+}
+.banner{
+    padding: 20px 0%;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items:end; 
+}
+.banner li a{
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.3s;
+    border: 2px solid white;
+    border-radius: 50px;
+    padding: 10px;
+}
+.Contenedor{
+    position: relative;
+    padding:  20px 50px;
+}
+.Banner{
+    position: relative;
+     height: 507.5px;
+    background-color: white;
+
+}
+.sobrePuesto{
+    z-index: 1;
+    color: white;  
+    width: 335px;        
+    height: 61px;       
+    background-color: #FC8A06;
+    border-radius: 20px;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    font-weight: 500;
+}
+
+.seccion{
+    display: flex;
+    justify-content: space-between ;
+
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background-color: white;
+     font-size: 28px;
+    font-weight: 700;
+    padding: 20px 50px;
+}
+.busqueda{
+    color: #555;
+    text-decoration: none;
+    font-weight: 200;
+    font-size: 15px;
+    transition: color 0.3s;
+    border: 2px solid #555;
+    border-radius: 50px;
+    padding: 10px;
+}
+
+.Offers-navbar{
+    background-color: #FC8A06;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
+}
+.Offers-links{
+    color: #ffffff;
+    list-style: none;
+    display: flex;
+    gap: 11%;
+    align-items: center;
+}
+.Offers-links li a {
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 15px;
+    transition: color 0.3s;
+    color: white;
+}
+
+.Imagenes{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    background-color: white;
+}
+.Imagenes p{
+    font-size: 18px;
+    margin-left: 20px;
+    color: #FC8A06;
+    
+}
+.Imagenes h2{
+    margin-left: 20px;
+    font-size: 32px;
+    color: white;
+}
+.FirstOrder{
+    width: 496px;
+    height: 325px;
+    background-image: url(img/orders_01.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.VeganDiscount{
+    width: 496px;
+    height: 325px;
+    background-image: url(img/orders_02.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+.FreeIceCream{
+    width: 496px;
+    height: 325px;
+    background-image: url(img/orders_03.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.Burgers{
+    font-size: 30px;
+    font-weight: 700;
+    background-color: white;
+}
+.Menu{
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.Menu p{
+    font-size: 13px;
+    padding-top: 10%;
+}
+.cuadro{
+    width: 496px;
+    height: 245px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.255);
+    margin-top: 20px;
+}
+.info{
+    padding: 5%;
+}
+.menu_imagen{
+    margin: 5%;
+    display: flex;
+    width:203px;
+    height: 199px;
+    background-color: #FC8A06;
+    border-radius: 20px;
+}
+
+.imagen1{
+    background-image: url(img/burgers_01.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+.imagen2{
+    background-image: url(img/burgers_02.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+.imagen3{
+    background-image: url(img/burgers_03.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+.imagen4{
+    background-image: url(img/burgers_04.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+.imagen5{
+    background-image: url(img/burgers_05.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+.imagen6{
+    background-image: url(img/burgers_06.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+.negrita{
+    font-weight: 1000;
+}
