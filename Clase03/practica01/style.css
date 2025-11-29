@@ -1,0 +1,59 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: white;
+}
+.grilla{
+    width: 500px;
+    height: 800px;
+    color: white;
+    display: grid;
+    text-align: center;
+    grid-template-areas: 
+        "header header header"
+        "hero hero hero"
+        "menu main main"
+        "menu banner banner"
+        "menu extra image"
+    ;
+    grid-template-columns: 2fr 2fr 2fr;
+    grid-template-rows: 5fr 15fr 15fr 10fr 10fr;
+    font-weight: 1000;
+}
+.header{
+    grid-area: header;
+     background-color: rgb(156, 156, 136);
+}
+.hero{
+    grid-area: hero;
+    background-color:rgba(93, 132, 189);
+}
+
+.menu {
+    grid-area: menu;
+    background-color: rgba(208, 60, 82);
+}
+.main{
+    grid-area: main;
+    background-color: rgba(40, 53, 72);
+}
+.banner{
+    grid-area: banner;
+     background-color: rgba(244, 212, 127);
+}
+
+.extra{
+    grid-area: extra;
+     background-color: rgba(115, 198, 154);
+}
+
+.image{
+    grid-area: image;
+     background-color: rgba(200, 229, 227);
+}

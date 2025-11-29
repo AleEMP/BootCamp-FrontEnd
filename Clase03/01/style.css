@@ -1,0 +1,70 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: white;
+}
+.grilla{
+    display: grid;
+    grid-template-areas: 
+        "nav header header"
+        "nav products aside"
+        "nav services aside"
+        "nav footer footer"
+    ;
+    grid-template-columns: 20% auto 15%;
+    grid-template-rows: 100px 1fr 1fr 75px;
+    font-weight: 1000;
+}
+
+.header{
+    grid-area: header;
+    background-color: aqua;
+}
+
+.nav {
+    grid-area: nav;
+    background-color: rgb(253, 255, 109);
+}
+.products{
+    grid-area: products;
+    background-color: beige;
+}
+.aside{
+    grid-area: aside;
+     background-color: rgb(38, 204, 66);
+}
+
+.services{
+    grid-area: services;
+     background-color: rgb(161, 69, 197);
+}
+
+.footer{
+    grid-area: footer;
+     background-color: rgb(156, 156, 136);
+}
+
+@media (max-width: 640px){
+    .grilla{
+        grid-template-areas: 
+        "header"
+        "products"
+        "services"
+        "aside"
+        "footer";
+
+        grid-template-rows: 100px 200px 200px 75px 200px;
+        grid-template-columns: 1fr;
+        font-weight: 1000;
+    ;
+    }
+    .nav{
+        display: none;
+    }
+}
