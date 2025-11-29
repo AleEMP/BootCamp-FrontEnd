@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>VALORANT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "val-red": "#ff4655",
+              "val-dark": "#0f1923",
+              "val-white": "#ece8e1",
+              "val-gray": "#768079",
+            },
+            fontFamily: {
+              sans: ["system-ui", "sans-serif"],
+              condensed: ["'Roboto Condensed'", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="text-val-dark antialiased">
+    <!--BARRA DE NAVEGACION -->
+    <nav
+      id="navbar"
+      class="fixed w-full z-50 bg-[#111] border-b border-[#333] h-20 flex items-center transition-all duration-300"
+    >
+      <div class="w-full px-6 flex justify-between items-center">
+        <div class="flex items-center gap-8">
+          <div class="flex items-center gap-6 mr-4">
+            <a href="#" class="block w-24 hover:opacity-70 transition-opacity">
+              <div
+                class="h-8 flex items-center justify-center text-[10px] text-white"
+              >
+                <img src="/img/riotLogo.png" />
+              </div>
+            </a>
+            <a href="#" class="block w-10 hover:opacity-70 transition-opacity">
+              <img src="/img/logo.png" />
+            </a>
+          </div>
+
+          <div class="hidden xl:flex items-center gap-6 font-condensed">
+            <a
+              href="#"
+              class="text-white text-[13px] font-bold uppercase tracking-wide hover:bg-[#333] px-3 py-2 rounded-lg transition-colors flex items-center gap-1"
+            >
+              Información del juego
+              <span class="material-symbols-outlined text-[16px] text-gray-400"
+                >expand_more</span
+              >
+            </a>
+
+            <a
+              href="#"
+              class="text-white text-[13px] font-bold uppercase tracking-wide hover:bg-[#333] px-3 py-2 rounded-lg transition-colors"
+            >
+              Multimedia
+            </a>
+
+            <a
+              href="#"
+              class="text-white text-[13px] font-bold uppercase tracking-wide hover:bg-[#333] px-3 py-2 rounded-lg transition-colors"
+            >
+              Noticias
+            </a>
+
+            <a
+              href="#"
+              class="text-white text-[13px] font-bold uppercase tracking-wide hover:bg-[#333] px-3 py-2 rounded-lg transition-colors flex items-center gap-1"
+            >
+              Soporte
+              <span class="material-symbols-outlined text-[16px] text-gray-400"
+                >expand_more</span
+              >
+            </a>
+
+            <a
+              href="#"
+              class="text-white text-[13px] font-bold uppercase tracking-wide hover:bg-[#333] px-3 py-2 rounded-lg transition-colors flex items-center gap-1"
+            >
+              Redes Sociales
+              <span class="material-symbols-outlined text-[16px] text-gray-400"
+                >expand_more</span
+              >
+            </a>
+
+            <a
+              href="#"
+              class="text-white text-[13px] font-bold uppercase tracking-wide hover:bg-[#333] px-3 py-2 rounded-lg transition-colors flex items-center gap-1"
+            >
+              Esports
+              <span class="material-symbols-outlined text-[16px] text-gray-400"
+                >arrow_outward</span
+              >
+            </a>
+
+            <a
+              href="#"
+              class="text-white text-[13px] font-bold uppercase tracking-wide hover:bg-[#333] px-3 py-2 rounded-lg transition-colors"
+            >
+              Champions of Champions
+            </a>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <button
+            class="w-10 h-10 bg-[#333] rounded-full flex items-center justify-center text-white hover:bg-[#444] transition-colors"
+          >
+            <span class="material-symbols-outlined text-[20px]">search</span>
+          </button>
+
+          <button
+            class="w-10 h-10 rounded-full flex items-center justify-center text-white hover:bg-[#333] transition-colors"
+          >
+            <span class="material-symbols-outlined text-[20px]">language</span>
+          </button>
+
+          <a
+            href="#"
+            class="bg-val-red hover:bg-[#ff1f30] text-val-dark font-condensed font-bold text-[13px] uppercase px-5 py-2 rounded-xl transition-colors ml-2"
+          >
+            Jugar ahora
+          </a>
+
+          <button id="menu-btn" class="xl:hidden text-white ml-2">
+            <span class="material-symbols-outlined text-[32px]">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="mobile-menu"
+        class="fixed inset-0 bg-val-dark z-40 transform translate-x-full transition-transform duration-300 flex flex-col pt-24 px-6 gap-6 h-screen"
+      >
+        <button id="close-menu" class="absolute top-6 right-6 text-white">
+          <span class="material-symbols-outlined text-[32px]">close</span>
+        </button>
+        <a href="#" class="text-2xl font-tungsten text-white hover:text-val-red"
+          >Información del juego</a
+        >
+      </div>
+    </nav>
+
+    <!-- BANNER -->
+    <header
+      class="relative h-[80vh] w-full flex items-center justify-center overflow-hidden bg-val-dark"
+    >
+      <div class="absolute inset-0 z-0">
+        <img
+          src="/img/foondoBanner2.jpg"
+          alt="Background"
+          class="w-full h-full object-cover opacity-60"
+        />
+        <div
+          class="absolute inset-0 bg-linear-to-t from-val-dark via-transparent to-transparent"
+        ></div>
+      </div>
+
+      <div
+        class="relative z-10 text-center px-4 flex flex-col items-center gap-4"
+      >
+        <h1
+          class="text-6xl md:text-6xl lg:text-[5rem] font-tungsten text-val-white leading-none tracking-tighter mb-4 cursor-default"
+        >
+          VALORANT
+        </h1>
+        <p
+          class="font-condensed font-bold text-val-white tracking-widest text-m md:text-2xl lg:text-m uppercase"
+        >
+          VALORANT: un juego de disparos táctico 5v5 con agentes que poseen
+          habilidades únicas
+        </p>
+
+        <div class="mt-8">
+          <a
+            href="#"
+            class="group relative inline-block p-[3px] border-2 border-val-white transition-transform duration-300 hover:scale-[1.02]"
+          >
+            <div
+              class="relative z-10 bg-val-red h-full w-full px-10 py-8 transition-colors duration-300 group-hover:bg-val-dark"
+            >
+              <span
+                class="text-val-white font-bold uppercase tracking-[0.15em] text-sm"
+              >
+                Jugar Gratis
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- SECTION 1: NOTICIAS -->
+    <section class="bg-[#ece8e1] py-16 px-6 border-b border-gray-300">
+      <div class="max-w-[1400px] mx-auto">
+        <div
+          class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4"
+        >
+          <h2
+            class="text-4xl md:text-6xl font-condensed font-black uppercase text-val-dark leading-none tracking-tighter"
+          >
+            NOTICIAS MÁS RECIENTES
+          </h2>
+
+          <a
+            href="#"
+            class="flex items-center gap-2 text-val-red font-bold font-condensed uppercase tracking-wider text-sm hover:underline mb-2"
+          >
+            Ir a la página de noticias
+            <span class="material-symbols-outlined text-[18px]"
+              >arrow_forward</span
+            >
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <article class="flex flex-col gap-4 cursor-pointer group">
+            <div class="w-full aspect-video overflow-hidden">
+              <img
+                src="/img/noticia1.png"
+                class="w-full h-full object-cover"
+                alt="Game Changers"
+              />
+            </div>
+
+            <div class="font-condensed">
+              <div
+                class="flex items-center gap-2 text-xs font-bold uppercase mb-2"
+              >
+                <span class="text-val-red">ESPORTS</span>
+                <span class="text-gray-400">|</span>
+                <span class="text-gray-500">17/11/2025</span>
+              </div>
+
+              <h3
+                class="text-2xl font-black text-val-dark uppercase leading-tight mb-2 group-hover:underline"
+              >
+                Mira y gana: Game Changers Championship
+              </h3>
+
+              <p class="text-gray-600 text-sm font-medium leading-relaxed">
+                ¡Sintoniza las partidas en vivo y obtén drops exclusivos!
+              </p>
+            </div>
+          </article>
+
+          <article class="flex flex-col gap-4 cursor-pointer group">
+            <div class="w-full aspect-video overflow-hidden">
+              <img
+                src="/img/noticia2.png"
+                class="w-full h-full object-cover"
+                alt="Social Impact"
+              />
+            </div>
+
+            <div class="font-condensed">
+              <div
+                class="flex items-center gap-2 text-xs font-bold uppercase mb-2"
+              >
+                <span class="text-val-red">ANUNCIOS</span>
+                <span class="text-gray-400">|</span>
+                <span class="text-gray-500">13/11/2025</span>
+              </div>
+
+              <h3
+                class="text-2xl font-black text-val-dark uppercase leading-tight mb-2 group-hover:underline"
+              >
+                Vota ya, elige una organización benéfica
+              </h3>
+
+              <p class="text-gray-600 text-sm font-medium leading-relaxed">
+                ¿Alguna vez te has preguntado qué sucede con el dinero que
+                recauda el Fondo de Impacto Social de Riot Games? Vota ahora.
+              </p>
+            </div>
+          </article>
+
+          <article class="flex flex-col gap-4 cursor-pointer group">
+            <div class="w-full aspect-video overflow-hidden">
+              <img
+                src="/img/noticia3.png"
+                class="w-full h-full object-cover"
+                alt="Update"
+              />
+            </div>
+
+            <div class="font-condensed">
+              <div
+                class="flex items-center gap-2 text-xs font-bold uppercase mb-2"
+              >
+                <span class="text-val-red">ACTUALIZACIONES DEL JUEGO</span>
+                <span class="text-gray-400">|</span>
+                <span class="text-gray-500">11/11/2025</span>
+              </div>
+
+              <h3
+                class="text-2xl font-black text-val-dark uppercase leading-tight mb-2 group-hover:underline"
+              >
+                Versión 11.10 de VALORANT
+              </h3>
+
+              <p class="text-gray-600 text-sm font-medium leading-relaxed">
+                Rediseño de Harbor, actualizaciones de funcionalidad, ajustes a
+                Clove y corrección de errores.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: VETO -->
+    <section
+      class="relative overflow-hidden h-[500px] md:h-[700px] flex group bg-[#0f1923]"
+    >
+      <div class="absolute inset-0 z-0">
+        <img
+          src="/img/VetoBanner.png"
+          alt="Veto Background"
+          class="w-full h-full object-cover object-top"
+        />
+        <div
+          class="absolute inset-0 bg-linear-to-t from-[#0f1923] via-[#0f1923]/60 to-transparent md:hidden"
+        ></div>
+      </div>
+
+      <div
+        class="max-w-[1400px] mx-auto px-6 relative z-10 w-full flex flex-col md:flex-row items-end md:items-center md:justify-end h-full pb-12 md:pb-0"
+      >
+        <div
+          class="w-full md:w-1/2 text-white flex flex-col items-center md:items-start text-center md:text-left md:pl-12 font-condensed"
+        >
+          <h2
+            class="text-5xl md:text-8xl font-black uppercase mb-2 md:mb-4 leading-none tracking-tight drop-shadow-lg"
+          >
+            NUEVO AGENTE: VETO
+          </h2>
+
+          <p
+            class="text-lg md:text-2xl text-gray-200 mb-6 md:mb-8 font-bold leading-tight drop-shadow-md max-w-lg"
+          >
+            Neutraliza el campo de batalla con Veto y deja que tus disparos
+            hablen por ti.
+          </p>
+
+          <a
+            href="#"
+            class="bg-val-red hover:bg-[#ff1f30] text-white font-black uppercase tracking-widest text-sm md:text-lg px-8 py-3 md:px-10 md:py-4 rounded-sm transition-colors shadow-lg inline-block"
+          >
+            VER AHORA
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SOMOS VALORANT -->
+    <section class="bg-[#ece8e1] py-24 px-6 relative overflow-hidden">
+      <div class="max-w-[1400px] mx-auto">
+        <div
+          class="flex flex-col lg:flex-row gap-16 items-center relative z-10"
+        >
+          <div class="w-full lg:w-1/2 relative">
+            <div class="relative mb-8 inline-block">
+              <h2
+                class="text-7xl md:text-9xl font-condensed font-black text-val-dark leading-none uppercase tracking-tighter"
+              >
+                SOMOS VALORANT
+              </h2>
+              <div
+                class="absolute w-2 h-2 md:w-3 md:h-3 bg-val-red left-1/4 -bottom-4 hidden md:block"
+              ></div>
+              <div
+                class="absolute w-2 h-2 md:w-3 md:h-3 bg-val-red -right-8 top-1/2 hidden md:block"
+              ></div>
+            </div>
+
+            <h3
+              class="text-xl font-condensed font-bold uppercase text-val-dark mb-6 tracking-wider"
+            >
+              DESAFÍA LOS LÍMITES
+            </h3>
+
+            <p
+              class="text-gray-700 text-lg leading-relaxed mb-12 font-medium max-w-xl font-condensed"
+            >
+              Combina tu estilo y experiencia en un escenario global y
+              competitivo. Tienes 13 rondas para atacar y defender tu lado con
+              armas precisas y habilidades tácticas. Además, al contar con una
+              sola vida por ronda, tendrás que pensar más rápido que tu oponente
+              si quieres sobrevivir. Enfréntate a enemigos en los modos
+              competitivo y normal, así como en Deathmatch y Spike Rush.
+            </p>
+
+            <a
+              href="#"
+              class="bg-val-red hover:bg-[#ff1f30] text-white font-condensed font-bold uppercase tracking-widest text-sm px-10 py-4 rounded-sm transition-colors shadow-lg inline-block"
+            >
+              VER AHORA
+            </a>
+          </div>
+
+          <div
+            class="w-full lg:w-1/2 h-[400px] md:h-[550px] relative overflow-hidden shadow-xl"
+          >
+            <img
+              src="/img/somosValorant.jpg"
+              class="w-full h-full object-cover"
+              alt="Valorant Gameplay"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: TUS AGENTES -->
+    <section class="bg-val-red text-white py-20 relative overflow-hidden">
+      <div class="absolute top-12 left-12 pointer-events-none hidden md:block">
+        <svg viewBox="0 0 100 100" class="w-12 h-12 fill-val-dark opacity-50">
+          <path d="M90 10 L50 90 L10 10" />
+        </svg>
+      </div>
+      <div
+        class="absolute top-32 left-64 gap-2 pointer-events-none hidden md:flex opacity-50"
+      >
+        <div class="w-2 h-2 bg-val-dark"></div>
+        <div class="w-2 h-2 bg-val-dark"></div>
+      </div>
+      <div
+        class="absolute top-32 right-1/4 gap-2 pointer-events-none hidden md:flex opacity-50"
+      >
+        <div class="w-2 h-2 bg-val-dark"></div>
+        <div class="w-2 h-2 bg-val-dark"></div>
+      </div>
+      <div
+        class="absolute bottom-24 left-1/2 w-3 h-3 bg-val-dark opacity-50 hidden md:block pointer-events-none"
+      ></div>
+      <div
+        class="absolute bottom-24 right-24 w-3 h-3 bg-val-dark opacity-50 hidden md:block pointer-events-none"
+      ></div>
+
+      <div
+        class="absolute bottom-12 left-12 pointer-events-none hidden md:block opacity-50 text-val-dark font-bold text-xs tracking-widest"
+      >
+        RIOT GAMES
+      </div>
+      <div
+        class="max-w-[1400px] mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center"
+      >
+        <div
+          class="w-full lg:w-1/2 relative h-[500px] lg:h-[700px] mb-12 lg:mb-0 flex justify-center lg:justify-start"
+        >
+          <img
+            src="/img/tusAgentes.png"
+            class="h-full object-contain object-bottom-left relative z-10 drop-shadow-2xl"
+            alt="Agentes Valorant"
+          />
+        </div>
+
+        <div class="w-full lg:w-1/2 lg:pl-16 font-condensed">
+          <h2
+            class="text-7xl lg:text-9xl font-black text-white mb-6 leading-none uppercase tracking-tight"
+          >
+            TUS AGENTES
+          </h2>
+
+          <h3 class="text-xl font-bold uppercase tracking-wider mb-8">
+            LA CREATIVIDAD ES TU MEJOR ARMA.
+          </h3>
+
+          <p
+            class="text-lg leading-relaxed mb-12 font-medium max-w-xl opacity-90"
+          >
+            Más allá de las armas y las balas, podrás elegir a un agente dotado
+            de habilidades versátiles, veloces y letales con las que crearás
+            oportunidades para sobresalir. Ningún agente se jugará igual, ni
+            ningún momento memorable se verá igual.
+          </p>
+
+          <a
+            href="#"
+            class="bg-val-dark hover:bg-[#212e3a] text-white font-bold uppercase tracking-widest text-sm px-10 py-4 inline-block transition-colors shadow-lg"
+          >
+            VER TODOS LOS AGENTES
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: TUS MAPAS -->
+    <section
+      class="bg-[#ece8e1] py-20 relative overflow-hidden text-val-dark font-condensed"
+    >
+      <div
+        class="absolute top-10 left-0 w-full overflow-hidden pointer-events-none select-none z-0"
+      >
+        <span
+          class="text-[15rem] md:text-[25rem] font-black uppercase text-transparent leading-none opacity-5"
+          style="-webkit-text-stroke: 2px #0f1923"
+        >
+          PLACE
+        </span>
+      </div>
+
+      <div class="absolute top-12 left-12 hidden md:block opacity-50">
+        <div
+          class="w-8 h-8 bg-val-dark flex items-center justify-center text-[#ece8e1] font-bold"
+        >
+          V
+        </div>
+        <div class="w-8 h-1 bg-val-dark mt-1"></div>
+      </div>
+
+      <div
+        class="max-w-[1400px] mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center h-full"
+      >
+        <div
+          class="w-full lg:w-1/2 pr-0 lg:pr-16 flex flex-col justify-center mb-12 lg:mb-0 relative"
+        >
+          <div class="flex flex-col gap-1 mb-4 md:ml-1">
+            <div class="w-1.5 h-1.5 bg-val-dark"></div>
+            <div class="w-px h-8 bg-val-dark ml-0.5"></div>
+            <div class="w-1.5 h-1.5 bg-val-dark"></div>
+          </div>
+
+          <h2
+            class="text-7xl md:text-9xl font-black uppercase text-val-dark leading-none tracking-tighter mb-6"
+          >
+            TUS MAPAS
+          </h2>
+
+          <h3
+            class="text-sm font-bold uppercase tracking-widest mb-6 flex items-center gap-2"
+          >
+            <span class="w-1 h-1 bg-val-dark"></span>
+            PELEA ALREDEDOR DEL MUNDO
+          </h3>
+
+          <p
+            class="text-gray-600 text-lg leading-relaxed font-medium max-w-lg mb-10"
+          >
+            Cada mapa es un campo de batalla para demostrar tu pensamiento
+            creativo. Están diseñados especialmente para estrategias de equipo,
+            jugadas espectaculares y momentos para remontar. Haz la jugada que
+            otros imitarán en el futuro.
+          </p>
+
+          <div>
+            <a
+              href="#"
+              class="bg-val-red hover:bg-[#ff1f30] text-white font-bold uppercase tracking-widest text-sm px-10 py-4 inline-block transition-colors shadow-lg rounded-sm"
+            >
+              VER TODOS LOS MAPAS
+            </a>
+          </div>
+
+          <div
+            class="mt-16 opacity-50 font-bold text-xs tracking-[0.2em] flex flex-col gap-4"
+          >
+            <div class="flex gap-1">
+              <div class="w-1.5 h-1.5 bg-val-dark"></div>
+              <div class="w-1.5 h-1.5 bg-val-dark"></div>
+            </div>
+            <span>RIOT GAMES</span>
+            <div class="w-3 h-3 bg-val-dark"></div>
+          </div>
+        </div>
+
+        <div class="w-full lg:w-1/2 relative h-[400px] md:h-[600px]">
+          <img
+            src="/img/tusMapas.png"
+            class="w-full h-full object-cover md:object-contain object-right"
+            alt="Map Split"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#111] text-gray-500 py-12 border-t-4 border-[#333]">
+      <div
+        class="max-w-[1400px] mx-auto px-6 flex flex-col items-center text-center"
+      >
+        <div class="flex gap-4 mb-8">
+          <a
+            href="#"
+            class="w-10 h-10 bg-[#292929] rounded-lg flex items-center justify-center hover:bg-val-red hover:text-white transition-colors"
+          >
+            <span class="material-symbols-outlined"> raven </span>
+          </a>
+          <a
+            href="#"
+            class="w-10 h-10 bg-[#292929] rounded-lg flex items-center justify-center hover:bg-val-red hover:text-white transition-colors"
+          >
+            <span class="material-symbols-outlined"> photo_camera </span>
+          </a>
+          <a
+            href="#"
+            class="w-10 h-10 bg-[#292929] rounded-lg flex items-center justify-center hover:bg-val-red hover:text-white transition-colors"
+          >
+            <span class="material-symbols-outlined"> youtube_activity </span>
+          </a>
+        </div>
+        <div
+          class="mb-8 opacity-50 hover:opacity-100 transition-opacity cursor-default"
+        >
+          <h3 class="text-2xl font-black tracking-tighter text-white">
+            RIOT GAMES
+          </h3>
+        </div>
+        <div
+          class="flex flex-wrap justify-center gap-6 text-xs font-bold uppercase tracking-wide mb-8 text-gray-400"
+        >
+          <a href="#" class="hover:text-white transition-colors"
+            >Política de Privacidad</a
+          >
+          <a href="#" class="hover:text-white transition-colors"
+            >Términos de Servicio</a
+          >
+          <a href="#" class="hover:text-white transition-colors"
+            >Preferencias de Cookies</a
+          >
+        </div>
+
+        <div class="text-[10px] text-gray-600 max-w-xl mx-auto mb-8">
+          <p>
+            © 2024 Riot Games, Inc. Riot Games, VALORANT y cualquier logotipo
+            asociado son marcas comerciales, marcas de servicio y/o marcas
+            registradas de Riot Games, Inc.
+          </p>
+        </div>
+    </footer>
+  </body>
+</html>
