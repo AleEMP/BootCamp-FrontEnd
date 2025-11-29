@@ -1,0 +1,20 @@
+// main.scss (Corregido)
+
+// 1. TODAS las reglas @use DEBEN ir primero (incluso si son importaciones de variables)
+@use 'variables';
+@use 'mixins';
+@use 'components'; // <-- ¡Ahora está antes de cualquier regla CSS!
+
+// --- Ahora puedes escribir tus estilos CSS globales ---
+
+// 2. Base (estilos globales)
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: variables.$color-background; // Uso de variable importada
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}

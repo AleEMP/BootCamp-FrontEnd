@@ -1,0 +1,39 @@
+// _components.scss
+
+@use 'mixins'; // Usa el mixin
+@use 'variables'; // Usa las variables
+
+.card {
+  background-color: variables.$card-background;
+  padding: variables.$card-padding;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 50px auto 20px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.button {
+  // Estilo base para el botón principal "Click me!"
+  &--primary {
+    @include mixins.button-style(variables.$color-primary, white);
+  }
+
+  // Estilos para los botones de la fila de abajo
+  &--warning {
+    @include mixins.button-style(variables.$color-warning);
+  }
+
+  &--danger {
+    @include mixins.button-style(variables.$color-danger, white);
+  }
+
+  &--ok {
+    @include mixins.button-style(variables.$color-ok, white);
+  }
+}
